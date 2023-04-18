@@ -3,20 +3,15 @@ import cv2
 import numpy as np 
 import streamlit as st 
 
-def face_reco(index) : 
+def face_recognition(index) : 
     video_capture = cv2.VideoCapture(index)
-    elon_image = face_recognition.load_image_file("DB/4.jpg")
+    elon_image = face_recognition.load_image_file("DB/1.jpg")
     elon_face_encoding = face_recognition.face_encodings(elon_image)[0]
 
-    lio_image = face_recognition.load_image_file("DB/3.jpg")
-    lio_face_encoding = face_recognition.face_encodings(lio_image)[0]
-
     known_face_encodings = [
-    salah_face_encoding,
-    ayoub_face_encoding ]
+    elon_face_encoding ]
     known_face_names = [
-    "elon musk" , 
-    "lionel messi"]
+    "elon musk"]
     face_locations = []
     face_encodings = []
     face_names = []
@@ -61,7 +56,6 @@ def face_reco(index) :
         # Display the resulting image
         frame = cv2.cvtColor( frame , cv2.COLOR_BGR2RGB )
         frame_window.image(frame)
-    video_capture.release()
 
 
 
